@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Чат</title>
+    <style>
+        #message-input {
+            width: 300px;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+
+        #message-container {
+            width: 300px;
+            height: 200px;
+            border: 1px solid #000;
+            overflow-y: scroll;
+        }
+
+        .message {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="message-input" placeholder="Введите сообщение">
+        <button onclick="send()">Отправить</button>
+    </div>
+    <div id="message-container"></div>
+
+    <script>
+        function send() {
+            var messageInput = document.getElementById("message-input");
+            var messageContainer = document.getElementById("message-container");
+
+            var message = messageInput.value;
+            console.log("Пользователь отправил сообщение: " + message);
+
+            var messageElement = document.createElement("div");
+            messageElement.className = "message";
+            messageElement.textContent = message;
+            messageContainer.appendChild(messageElement);
+
+            messageInput.value = "";
+        }
+    </script>
+</body>
+
+</html>
